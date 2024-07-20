@@ -24,7 +24,13 @@
                 <p class="mt-2">
                     {{$work->description}}
                 </p>
-                <x-button :href="route('work.show',$work)">View Job</x-button>
+                @if ($work->jobapplication->isempty())
+                <x-button :href="route('Application.create',$work->id)">Apply</x-button>
+                @else
+                <div class="text-center">
+                    <span class=" bg-blue-500 text-white text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">You already applied this post</span>
+                </div>
+                @endif
             </div>
         </div>
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WorkController;
 use Illuminate\Support\Facades\Route;
@@ -18,5 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('work',WorkController::class);
+    Route::get('/application/create/{work}', [JobApplicationController::class, 'create'])->name('Application.create');
+    Route::resource('Application',JobApplicationController::class)->except(['create']);
 });
 require __DIR__.'/auth.php';

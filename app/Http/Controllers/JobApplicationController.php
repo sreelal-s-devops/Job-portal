@@ -2,29 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JobApplication;
 use App\Models\Work;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class WorkController extends Controller
+class JobApplicationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       $filter= request(['jobname','max','min','experience','category']);
-        $works =Work::filter($filter)->paginate(5);
-        $experiences = Work::$experience;
-        $categories = Work::$category;
-        return view('work.all_jobs', compact('works','categories','experiences'));
+        //
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Work $work)
     {
-        //
+
+        return view('application.apply_form', compact('work'));
     }
 
     /**
@@ -32,7 +31,14 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user_id = Auth::user()->id;
+        $work_id = $request->work_id;
+        JobApplication::create([
+            'user_id' => $user_id,
+            'work_id' => $work_id
+        ]);
+        return redirect()->route('work.index')->with('message', "Applied, Sucessfully!!!...");
+
     }
 
     /**
@@ -40,12 +46,7 @@ class WorkController extends Controller
      */
     public function show(string $id)
     {
-        try {
-            $work = Work::with('jobapplication')->find($id);
-            return view('work.work_view', compact('work'));
-        } catch (\Throwable $th) {
-           
-        }
+        //
     }
 
     /**

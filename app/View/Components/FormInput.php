@@ -14,11 +14,13 @@ class FormInput extends Component
     public string $name;
     public string $placeholder;
     public string $value;
-    public function __construct(string $name,string $placeholder,string $value)
+    public string $type;
+    public function __construct(string $name,?string $placeholder="",?string $value="",?string $type='text')
     {
         $this->name=$name ;
         $this->placeholder =$placeholder;
         $this->value= $value;
+        $this->type=$type;
     }
 
     /**

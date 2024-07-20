@@ -27,4 +27,7 @@ class Work extends Model
                 $query->where('category','=',$category);
             });
     }
+    public function jobapplication(){
+        return $this->hasmany(JobApplication::class);
+    }
 }
