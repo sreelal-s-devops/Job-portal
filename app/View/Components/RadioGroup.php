@@ -10,6 +10,7 @@ class RadioGroup extends Component
 {
     public  $name;
     public array $options;
+   
     /**
      * Create a new component instance.
      */
@@ -17,6 +18,7 @@ class RadioGroup extends Component
     {
       $this->name=$name;
       $this->options=$options;
+     
 
     }
 

@@ -12,17 +12,11 @@ class WorkController extends Controller
      */
     public function index()
     {
-       
-        $works = Work::when(request('jobname'),function($query){
-            $query->where('title','LIKE','%'.request('jobname').'%');
-        })->when(request('max'),function($query){
-            $query->where('salary','<=',request('max'));
-        })->when(request('min'),function($query){
-            $query->where('salary','>=',request('min'));
-        })->when(request('experience'),function($query){
-            $query->where('experience','=',request('experience'));
-        })->paginate(5);
-        return view('work.all_jobs', compact('works'));
+       $filter= request(['jobname','max','min','experience','category']);
+        $works =Work::filter($filter)->paginate(5);
+        $experiences = Work::$experience;
+        $categories = Work::$category;
+        return view('work.all_jobs', compact('works','categories','experiences'));
     }
 
     /**

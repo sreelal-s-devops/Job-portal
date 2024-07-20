@@ -16,6 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <!-- {{Auth::user()->user_type}} -->
             </div>
 
             <!-- Settings Dropdown -->

@@ -15,8 +15,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body >
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <body class="bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-300" >
+        <div >
             @include('layouts.navigation')
 
             <!-- Page Heading -->

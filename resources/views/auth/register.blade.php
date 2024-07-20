@@ -17,6 +17,12 @@
         </div>
 
         <!-- Password -->
+        <!-- employee or employer -->
+         <div class="mt-4">
+            <x-input-label for="user_type" value="User Type"></x-input-label>
+            <x-radio-group name="user_ type" :options="['Employer','Employee']"></x-radio-group>
+            <x-input-error :messages="$errors->get('user_type')" class="mt-2" />
+         </div>
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
 
@@ -25,7 +31,7 @@
                             name="password"
                             required autocomplete="new-password" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+          <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
         <!-- Confirm Password -->
