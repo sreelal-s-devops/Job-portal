@@ -14,7 +14,10 @@ class JobApplicationController extends Controller
      */
     public function index()
     {
-        //
+     $id=Auth::user()->id;
+     $applications =JobApplication::with('work')->where('user_id','=',$id)->orderby('created_at','desc')->get();
+     return view('application.applications_list',compact('applications'));
+    
     }
 
     /**
@@ -37,7 +40,7 @@ class JobApplicationController extends Controller
             'user_id' => $user_id,
             'work_id' => $work_id
         ]);
-        return redirect()->route('work.index')->with('message', "Applied, Sucessfully!!!...");
+        return redirect()->route('work.index')->with('message', "You Applied, Sucessfully!!!...");
 
     }
 

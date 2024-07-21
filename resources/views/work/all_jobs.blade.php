@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <x-breadcrumb></x-breadcrumb>
+<x-alert></x-alert>
 <div class="rounded-md border border-slate-300 p-4  mt-2 bg-white dark:bg-gray-800 shadow">
     <form action="{{route('work.index')}}" method="get">
         <div class="grid grid-cols-2 gap-x-2 gap-y-2">

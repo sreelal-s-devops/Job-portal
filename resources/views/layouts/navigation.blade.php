@@ -12,11 +12,14 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <!-- <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link> -->
+                    <x-nav-link :href="route('Application.index')" :active="false">
+                        My Applications
                     </x-nav-link>
                 </div>
-                <!-- {{Auth::user()->user_type}} -->
+               
             </div>
 
             <!-- Settings Dropdown -->
