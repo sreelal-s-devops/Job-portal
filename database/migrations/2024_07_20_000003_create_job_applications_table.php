@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('work_id')->references('id')->on('works')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('cvname');
             $table->timestamps();
         });
     }

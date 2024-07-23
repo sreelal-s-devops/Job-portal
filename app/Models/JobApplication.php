@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class JobApplication extends Model
 {
     use HasFactory;
-    protected $fillable=['user_id','work_id'];
+    protected $fillable=['user_id','work_id','cvname'];
     public function work(){
         return $this->belongsTo(Work::class);
     }

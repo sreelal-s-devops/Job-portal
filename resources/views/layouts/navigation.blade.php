@@ -18,6 +18,7 @@
                     <x-nav-link :href="route('Application.index')" :active="false">
                         My Applications
                     </x-nav-link>
+                    
                 </div>
                
             </div>
