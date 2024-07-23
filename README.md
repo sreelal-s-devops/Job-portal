@@ -1,6 +1,7 @@
 # Job-portal
-The project aims comprehensive user management, allowing job seekers to create profiles, browse job listings, and apply for positions, while employers can post job vacancies and manage applications. It includes robust filtering by job name, maximum salary, and minimum salary, and supports CV uploads by job seekers. The system also offers secure authentication, a user-friendly interface, and responsive Blade templates
-##This Project is Under Development
+The project aims comprehensive user management, allowing job seekers to create profiles, browse job listings, and apply for positions, while employers can post job vacancies and manage applications. It includes robust filtering by job name, maximum salary, and minimum salary, and supports CV uploads by job seekers. The system also offers secure authentication, a user-friendly interface, and responsive Blade templates.
+
+## This Project is Under Development
 ## Installation
 
 1. Clone the repository.
