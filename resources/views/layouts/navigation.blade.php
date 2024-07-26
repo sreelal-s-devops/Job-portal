@@ -15,7 +15,7 @@
                     <!-- <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link> -->
-                    @if(Auth::user()->user_type=0)
+                    @if(Auth::user()->user_type==0)
                     <x-nav-link :href="route('Application.index')" :active="false">
                         My Applications
                     </x-nav-link>

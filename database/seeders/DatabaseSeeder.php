@@ -17,19 +17,17 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
         Work::factory()->count(10)->create();
-
         User::create([
             'name' => 'employee',
             'email' => 'emp@gmail.com',
             'user_type' => 0,
-            'password' => Hash::make('emp@1998'),  // Predefined password
+            'password' => Hash::make('emp@1998'),
         ]);
-
         User::create([
             'name' => 'employer',
             'email' => 'emplyr@gmail.com',
             'user_type' => 1,
-            'password' => Hash::make('emplyr@1998'),  // Predefined password
+            'password' => Hash::make('emplyr@1998'),
         ]);
     }
 }

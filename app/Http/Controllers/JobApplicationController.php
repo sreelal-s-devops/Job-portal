@@ -15,40 +15,46 @@ class JobApplicationController extends Controller
      */
     public function index()
     {
-     $id=Auth::user()->id;
-     $applications =JobApplication::with('work')->where('user_id','=',$id)->orderby('created_at','desc')->get();
-     return view('application.applications_list',compact('applications'));
-    
+        try {
+            $id = Auth::user()->id;
+            $applications = JobApplication::with('work')->where('user_id', '=', $id)->orderby('created_at', 'desc')->get();
+            return view('application.applications_list', compact('applications'));
+        } catch (\Throwable $th) {
+            return redirect()->route('work.index')->with('error', "Oops Something Went Wrong!!!");
+        }
     }
-
     /**
      * Show the form for creating a new resource.
      */
     public function create(Work $work)
     {
-
-        return view('application.apply_form', compact('work'));
+        try {
+            return view('application.apply_form', compact('work'));
+        } catch (\Throwable $th) {
+            return redirect()->route('work.index')->with('error', "Oops Something Went Wrong!!!");
+        }
     }
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(JobApplicationRequest $request)
     {
-        $user_id = Auth::user()->id;
-        $work_id = $request->work_id;
-        $file = $request->file('cv');
-        $filename = time().'_'.$file->getClientOriginalName();
-        $file->storeAs('cv',$filename,'public');
-        JobApplication::create([
-            'user_id' => $user_id,
-            'work_id' => $work_id,
-            'cvname' =>$filename,
-        ]);
-        return redirect()->route('work.index')->with('success', "You Applied, Sucessfully!!!...");
-
+        try {
+            $user_id = Auth::user()->id;
+            $work_id = $request->work_id;
+            $file = $request->file('cv');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('cv', $filename, 'public');
+            JobApplication::create([
+                'user_id' => $user_id,
+                'work_id' => $work_id,
+                'cvname' => $filename,
+            ]);
+            return redirect()->route('work.index')->with('success', "You Applied, Sucessfully!!!...");
+        } catch (\Throwable $th) {
+            return redirect()->route('work.index')->with('error', "Oops Something Went Wrong!!!");
+        }
     }
-
     /**
      * Display the specified resource.
      */

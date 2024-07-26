@@ -20,15 +20,15 @@
                 <x-input-label> Experience</x-input-label>
                 <input type="radio" name="experience" value="" id="all" @checked(!request('experience'))> All
                 <x-radio-group name="experience" :options="$experiences"></x-radio-group>
-              
+
             </div>
             <div>
-            <div>
-                <x-input-label> Category</x-input-label>
-                <input type="radio" name="category" value="" id="all" @checked(!request('category'))> All
-                <x-radio-group name="category" :options="$categories"></x-radio-group>
-               
-            </div>
+                <div>
+                    <x-input-label> Category</x-input-label>
+                    <input type="radio" name="category" value="" id="all" @checked(!request('category'))> All
+                    <x-radio-group name="category" :options="$categories"></x-radio-group>
+
+                </div>
             </div>
         </div>
         <x-button submit>Search</x-button>
@@ -60,8 +60,8 @@
                         <td class="p-2">{{$work->experience}}</td>
                     </tr>
                 </table>
-                @if (Auth::user()->user_type==0)
-                <x-button :href="route('work.show', $work)">View Job</x-button>
+                @if (Auth::user()->user_type == 0)
+                    <x-button :href="route('work.show', $work)">View Job</x-button>
                 @endif
             </div>
         </div>
@@ -70,5 +70,4 @@
 <div class="m-5">
     {{$works->links()}}
 </div>
-
 @endsection
