@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use App\Models\Work;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -10,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class WorkFactory extends Factory
 {
+ 
     /**
      * Define the model's default state.
      *
@@ -17,7 +19,9 @@ class WorkFactory extends Factory
      */
     public function definition(): array
     {
+        $user =User::where('user_type','=','1')->get();
         return [
+            'user_id'=>$user->random()->id,
            'title'=>fake()->jobTitle(),
            'description'=>fake()->paragraph(3,true),
            'salary'=>fake()->numberBetween(5000,25000),

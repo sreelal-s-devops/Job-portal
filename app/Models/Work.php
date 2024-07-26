@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Work extends Model
 {
     use HasFactory;
-    
+    protected $fillable =['user_id','title','description','salary','location','category','experience'];
     public static $category=['IT','Finance','Sales','Administration'];
     public static $experience=['Entry Level','Mid Level','Expert Level'];
 
@@ -29,5 +29,8 @@ class Work extends Model
     }
     public function jobapplication(){
         return $this->hasmany(JobApplication::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

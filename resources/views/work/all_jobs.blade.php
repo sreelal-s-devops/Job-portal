@@ -61,7 +61,6 @@
                     </tr>
                 </table>
                 @if (Auth::user()->user_type==0)
-                
                 <x-button :href="route('work.show', $work)">View Job</x-button>
                 @endif
             </div>

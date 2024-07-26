@@ -21,5 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('work',WorkController::class);
     Route::get('/application/create/{work}', [JobApplicationController::class, 'create'])->name('Application.create');
     Route::resource('Application',JobApplicationController::class)->except(['create']);
+    Route::get('manage-applications/{id}',[WorkController::class,'manageApplications'])->name('manageApplications');
+    Route::get('cv/{cv}',[WorkController::class,'downloadCv'])->name('download');
 });
 require __DIR__.'/auth.php';

@@ -45,7 +45,7 @@ class JobApplicationController extends Controller
             'work_id' => $work_id,
             'cvname' =>$filename,
         ]);
-        return redirect()->route('work.index')->with('message', "You Applied, Sucessfully!!!...");
+        return redirect()->route('work.index')->with('success', "You Applied, Sucessfully!!!...");
 
     }
 

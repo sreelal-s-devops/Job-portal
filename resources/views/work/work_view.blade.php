@@ -24,7 +24,7 @@
                 <p class="mt-2">
                     {{$work->description}}
                 </p>
-                @if ($work->jobapplication->isempty())
+                @if ($work->jobapplications && $work->jobapplications->user_id !== Auth::user()->id)
                 <x-button :href="route('Application.create',$work->id)">Apply</x-button>
                 @else
                 <div class="text-center">
